@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore.InMemory;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +15,7 @@ namespace graphQL_Tutorial
         {
             services.AddDbContext<TimeGraphContext>(context =>
             {
-                // context.UseMemoryCache("TimeGraphServer");
+                context.UseInMemoryDatabase("TimeGraphServer");
             });
         }
 
